@@ -263,7 +263,7 @@ class DQNAgent:
         return self.model.predict(np.array(state).reshape(-1, *state.shape)/255)[0] # why divide by 255? 
 
     def train(self, terminal_state, step):
-        if len(self.replay_memory) < REPLAY_MEMORY_SIZE:
+        if len(self.replay_memory) < MIN_REPLAY_MEMORY_SIZE: 
             return
 
         minibatch = random.sample(self.replay_memory, MINIBATCH_SIZE)
